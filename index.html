@@ -53,7 +53,6 @@
       position: relative;
     }
 
-    /* خلفية فنية متحركة */
     body::before {
       content: '';
       position: fixed;
@@ -79,7 +78,6 @@
       75% { transform: translate(1%, 0.5%) scale(1.01); }
     }
 
-    /* جزيئات ذهبية عائمة */
     body::after {
       content: '';
       position: fixed;
@@ -117,7 +115,6 @@
       z-index: 2;
     }
 
-    /* ===== شريط التنقل الزجاجي الفاخر ===== */
     .navbar {
       background: rgba(28, 20, 16, 0.7);
       backdrop-filter: blur(35px) saturate(200%);
@@ -145,7 +142,6 @@
       position: relative;
     }
 
-    /* شعار الشركة - صورة lo.jpg */
     .logo-image {
       width: 55px;
       height: 55px;
@@ -221,7 +217,6 @@
       transform: translateX(-50%) scaleX(1);
     }
 
-    /* زر القائمة للموبايل */
     .menu-toggle {
       display: none;
       background: none;
@@ -236,7 +231,6 @@
       text-shadow: 0 0 20px rgba(240, 215, 140, 0.9);
     }
 
-    /* ===== القسم الرئيسي الفخم ===== */
     .hero {
       min-height: 90vh;
       display: flex;
@@ -332,7 +326,6 @@
       transform: translateY(-3px);
     }
 
-    /* مؤشر التمرير للأسفل */
     .scroll-indicator {
       position: absolute;
       bottom: 40px;
@@ -361,7 +354,6 @@
       50% { transform: translateX(-50%) translateY(15px); }
     }
 
-    /* ===== قسم منتجاتنا (المعرض) ===== */
     .products-showcase {
       padding: 100px 0;
       position: relative;
@@ -453,11 +445,11 @@
       object-fit: cover;
       border-radius: 32px;
       display: block;
-      transition: var(--soft-transition);
+      transition: opacity 0.5s ease;
       filter: brightness(1.08) contrast(1.05) saturate(1.1);
+      background: #3e2723;
     }
 
-    /* نقاط المؤشر */
     .slider-dots {
       display: flex;
       justify-content: center;
@@ -553,7 +545,6 @@
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
     }
 
-    /* ===== هدفنا ===== */
     .goal-section {
       padding: 100px 0;
     }
@@ -610,7 +601,6 @@
       font-size: 1.4rem;
     }
 
-    /* تنسيق الكلمات المميزة داخل النص */
     .highlight-gold {
       background: var(--gold-shimmer);
       background-size: 200% 200%;
@@ -649,7 +639,6 @@
       transform: scale(1.08);
     }
 
-    /* إزالة تأثير الحرف الأول الكبير */
     .goal-panel p::first-letter {
       font-size: inherit;
       font-weight: inherit;
@@ -671,7 +660,6 @@
       animation: shimmerText 3s ease-in-out infinite;
     }
 
-    /* ===== أزرار التواصل ===== */
     .contact-section {
       padding: 100px 0;
     }
@@ -786,7 +774,6 @@
       transform: translateY(-4px);
     }
 
-    /* ===== الفوتر ===== */
     footer {
       background: linear-gradient(180deg, rgba(28, 20, 16, 0.97) 0%, #1c1410 100%);
       color: #c59b63;
@@ -810,7 +797,6 @@
       animation: shimmerText 3s ease-in-out infinite;
     }
 
-    /* ===== تجاوب ===== */
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
@@ -868,7 +854,6 @@
       }
     }
 
-    /* تأثيرات الظهور التدريجي */
     .fade-in-element {
       opacity: 0;
       transform: translateY(35px);
@@ -879,6 +864,18 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    .image-error {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #3e2723, #5d3a2e);
+      color: #f0d78c;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      min-height: 400px;
+    }
   </style>
 </head>
 <body>
@@ -886,7 +883,6 @@
 <nav class="navbar">
   <div class="nav-container">
     <div class="logo-area">
-      <!-- شعار الشركة من ملف lo.jpg -->
       <img src="io.PNG" alt="شعار وادي الجمال" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
       <i class="fas fa-gem logo-diamond" style="display: none; font-size: 2.8rem; background: var(--gold-shimmer); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 0 20px rgba(240, 215, 140, 0.8));"></i>
       <span class="brand-text">وادي الجمال</span>
@@ -904,7 +900,6 @@
 </nav>
 
 <main>
-  <!-- القسم الرئيسي -->
   <section id="home" class="hero">
     <div class="hero-content">
       <div class="hero-badge">✦ أفخم العلامات ✦</div>
@@ -918,29 +913,26 @@
     </div>
   </section>
 
-  <!-- منتجاتنا (المعرض فقط) -->
   <section id="products-section" class="products-showcase">
     <div class="container">
       <h2 class="section-title">
         <i class="fas fa-crown"></i> منتجاتنا
       </h2>
       
-      <!-- سلايدر 40 صورة -->
       <div class="slider-master fade-in-element">
         <div class="frame-lux">
-          <img id="mainSliderImage" class="slider-img" src="j1.jpeg" alt="منتج وادي الجمال">
+          <img id="mainSliderImage" class="slider-img" src="j1.jpeg" alt="منتج وادي الجمال" loading="eager">
         </div>
         <div class="slider-dots" id="sliderDots"></div>
         <div class="nav-arrows">
-          <button class="arrow-gold" id="prevSlideBtn"><i class="fas fa-chevron-right"></i></button>
+          <button class="arrow-gold" id="prevSlideBtn" aria-label="السابق"><i class="fas fa-chevron-right"></i></button>
           <span class="counter-badge" id="slideCounter">1 / 40</span>
-          <button class="arrow-gold" id="nextSlideBtn"><i class="fas fa-chevron-left"></i></button>
+          <button class="arrow-gold" id="nextSlideBtn" aria-label="التالي"><i class="fas fa-chevron-left"></i></button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- هدفنا -->
   <section id="goal" class="goal-section">
     <div class="container">
       <h2 class="section-title"><i class="fas fa-gem"></i> هدفنا</h2>
@@ -951,24 +943,23 @@
     </div>
   </section>
 
-  <!-- اتصل بنا -->
   <section id="contact" class="contact-section">
     <div class="container">
       <h2 class="section-title"><i class="fas fa-phone-alt"></i> اتصل بنا</h2>
       <div class="contact-luxury fade-in-element">
-        <a id="whatsappLink" class="btn-lux btn-whatsapp" href="#" target="_blank">
+        <a id="whatsappLink" class="btn-lux btn-whatsapp" href="#" target="_blank" rel="noopener">
           <i class="fab fa-whatsapp"></i> تواصل واتساب
         </a>
         <button id="callButton" class="btn-lux btn-call">
           <i class="fas fa-phone"></i> اتصال هاتفي
         </button>
-        <a id="mapLink" class="btn-lux btn-map" href="#" target="_blank">
+        <a id="mapLink" class="btn-lux btn-map" href="#" target="_blank" rel="noopener">
           <i class="fas fa-map-marker-alt"></i> موقعنا على الخريطة
         </a>
         <a id="emailLink" class="btn-lux btn-email" href="mailto:info@wadialjamal.ly">
           <i class="fas fa-envelope"></i> info@wadialjamal.ly
         </a>
-        <a id="storeLink" class="btn-lux btn-email" href="https://daaralamirat.com/?fbclid=IwVERDUASw7nNleHRuA2FlbQIxMABzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEetIJl0Oj3sbGNkXep5fqKAoNcimn56QlWtl1qZPanfLcA6cnUB96vqf5uaQ8_aem_eNGCZ4aJN3IFIr8HB3RpgA" target="_blank">
+        <a id="storeLink" class="btn-lux btn-email" href="https://daaralamirat.com/?fbclid=IwVERDUASw7nNleHRuA2FlbQIxMABzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEetIJl0Oj3sbGNkXep5fqKAoNcimn56QlWtl1qZPanfLcA6cnUB96vqf5uaQ8_aem_eNGCZ4aJN3IFIr8HB3RpgA" target="_blank" rel="noopener">
           <i class="fas fa-shopping-basket"></i> متجرنا الإلكتروني
         </a>
       </div>
@@ -982,7 +973,6 @@
 
 <script>
   (() => {
-    // ========== قائمة الصور من j1.jpeg إلى j40.jpeg ==========
     const totalImages = 40;
     const imageList = [
       'j1.jpeg', 'j2.jpeg', 'j3.jpeg', 'j4.jpeg', 'j5.jpeg',
@@ -996,13 +986,47 @@
     ];
 
     let currentImageIndex = 0;
+    let imagesLoaded = [];
+    let failedImages = [];
+    
     const sliderImg = document.getElementById('mainSliderImage');
     const counterDisplay = document.getElementById('slideCounter');
     const prevBtn = document.getElementById('prevSlideBtn');
     const nextBtn = document.getElementById('nextSlideBtn');
     const dotsContainer = document.getElementById('sliderDots');
 
-    // إنشاء نقاط المؤشر
+    function preloadImage(src) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve({ src, loaded: true });
+        img.onerror = () => reject({ src, loaded: false });
+        img.src = src;
+      });
+    }
+
+    async function checkAllImages() {
+      const promises = imageList.map(src => 
+        preloadImage(src)
+          .then(result => {
+            imagesLoaded.push(result.src);
+            return result;
+          })
+          .catch(error => {
+            failedImages.push(error.src);
+            return error;
+          })
+      );
+      
+      await Promise.all(promises);
+      
+      if (failedImages.length > 0) {
+        console.warn('الصور التالية لم يتم تحميلها:', failedImages);
+      }
+      
+      createDots();
+      refreshSlider();
+    }
+
     function createDots() {
       if (!dotsContainer) return;
       dotsContainer.innerHTML = '';
@@ -1030,61 +1054,98 @@
       });
     }
 
+    function getPlaceholderImage(index) {
+      return `https://placehold.co/800x500/3e2723/f0d78c?text=وادي+الجمال+${index + 1}`;
+    }
+
     function refreshSlider() {
-      if (sliderImg) {
-        sliderImg.style.opacity = '0';
-        setTimeout(() => {
-          sliderImg.src = imageList[currentImageIndex];
-          sliderImg.onerror = function() {
-            this.src = `https://placehold.co/800x500/3e2723/f0d78c?text=صورة+${currentImageIndex + 1}`;
-          };
+      if (!sliderImg) return;
+      
+      sliderImg.style.opacity = '0';
+      
+      setTimeout(() => {
+        const nextSrc = imageList[currentImageIndex];
+        
+        sliderImg.onerror = function() {
+          console.warn(`فشل تحميل الصورة: ${nextSrc}`);
+          this.src = getPlaceholderImage(currentImageIndex);
+          this.onerror = null;
+        };
+        
+        sliderImg.onload = function() {
+          this.style.opacity = '1';
+        };
+        
+        sliderImg.src = nextSrc;
+        
+        if (sliderImg.complete && sliderImg.naturalWidth !== 0) {
           sliderImg.style.opacity = '1';
-        }, 300);
-      }
+        }
+        
+      }, 300);
+      
       if (counterDisplay) counterDisplay.textContent = `${currentImageIndex + 1} / ${totalImages}`;
       updateDots();
     }
 
-    if (prevBtn) prevBtn.addEventListener('click', () => {
-      currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages;
-      refreshSlider();
-    });
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages;
+        refreshSlider();
+      });
+    }
 
-    if (nextBtn) nextBtn.addEventListener('click', () => {
-      currentImageIndex = (currentImageIndex + 1) % totalImages;
-      refreshSlider();
-    });
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        currentImageIndex = (currentImageIndex + 1) % totalImages;
+        refreshSlider();
+      });
+    }
 
-    // دعم لوحة المفاتيح
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') {
+        e.preventDefault();
         currentImageIndex = (currentImageIndex + 1) % totalImages;
         refreshSlider();
       } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
         currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages;
         refreshSlider();
       }
     });
 
-    // التمرير التلقائي كل 5 ثواني
     let autoSlideInterval = setInterval(() => {
       currentImageIndex = (currentImageIndex + 1) % totalImages;
       refreshSlider();
     }, 5000);
 
-    // إيقاف التمرير التلقائي عند التفاعل
     const sliderMaster = document.querySelector('.slider-master');
     if (sliderMaster) {
-      sliderMaster.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+      sliderMaster.addEventListener('mouseenter', () => {
+        clearInterval(autoSlideInterval);
+      });
+      
       sliderMaster.addEventListener('mouseleave', () => {
         autoSlideInterval = setInterval(() => {
           currentImageIndex = (currentImageIndex + 1) % totalImages;
           refreshSlider();
         }, 5000);
       });
+
+      sliderMaster.addEventListener('touchstart', () => {
+        clearInterval(autoSlideInterval);
+      });
+      
+      sliderMaster.addEventListener('touchend', () => {
+        setTimeout(() => {
+          autoSlideInterval = setInterval(() => {
+            currentImageIndex = (currentImageIndex + 1) % totalImages;
+            refreshSlider();
+          }, 5000);
+        }, 2000);
+      });
     }
 
-    // ========== تأثيرات الظهور التدريجي ==========
     const observerOptions = {
       threshold: 0.15,
       rootMargin: '0px 0px -50px 0px'
@@ -1100,7 +1161,6 @@
 
     document.querySelectorAll('.fade-in-element').forEach(el => observer.observe(el));
 
-    // ========== قائمة الموبايل ==========
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
 
@@ -1109,7 +1169,6 @@
         navLinks.classList.toggle('active');
       });
 
-      // إغلاق القائمة عند الضغط على أي رابط
       navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           navLinks.classList.remove('active');
@@ -1117,10 +1176,9 @@
       });
     }
 
-    // ========== أزرار التواصل (قابلة للتخصيص) ==========
-    const phoneNumber = '0922700661٠'; // استبدل برقم الهاتف الفعلي
-    const whatsappNumber = '+218945586828'; // استبدل برقم الواتساب الفعلي
-    const mapLocation = 'https://maps.app.goo.gl/d7ginbzZt7GdUVxw6'; // استبدل برابط الخريطة الفعلي
+    const phoneNumber = '0922700661٠';
+    const whatsappNumber = '+218945586828';
+    const mapLocation = 'https://maps.app.goo.gl/d7ginbzZt7GdUVxw6';
 
     const whatsappLink = document.getElementById('whatsappLink');
     const callButton = document.getElementById('callButton');
@@ -1130,9 +1188,10 @@
     if (callButton) callButton.addEventListener('click', () => window.location.href = `tel:${phoneNumber}`);
     if (mapLink) mapLink.href = mapLocation;
 
-    // تهيئة السلايدر
     createDots();
     refreshSlider();
+    
+    checkAllImages();
   })();
 </script>
 
