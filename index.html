@@ -461,12 +461,13 @@
     .slider-dots {
       display: flex;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
       margin-top: 25px;
+      flex-wrap: wrap;
     }
     .slider-dot {
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: rgba(197, 155, 99, 0.3);
       cursor: pointer;
@@ -859,11 +860,11 @@
         height: 45px;
       }
       .slider-dots {
-        gap: 6px;
+        gap: 5px;
       }
       .slider-dot {
-        width: 8px;
-        height: 8px;
+        width: 7px;
+        height: 7px;
       }
     }
 
@@ -924,7 +925,7 @@
         <i class="fas fa-crown"></i> منتجاتنا
       </h2>
       
-      <!-- سلايدر 20 صورة -->
+      <!-- سلايدر 40 صورة -->
       <div class="slider-master fade-in-element">
         <div class="frame-lux">
           <img id="mainSliderImage" class="slider-img" src="j1.jpg" alt="منتج وادي الجمال">
@@ -932,7 +933,7 @@
         <div class="slider-dots" id="sliderDots"></div>
         <div class="nav-arrows">
           <button class="arrow-gold" id="prevSlideBtn"><i class="fas fa-chevron-right"></i></button>
-          <span class="counter-badge" id="slideCounter">1 / 20</span>
+          <span class="counter-badge" id="slideCounter">1 / 40</span>
           <button class="arrow-gold" id="nextSlideBtn"><i class="fas fa-chevron-left"></i></button>
         </div>
       </div>
@@ -978,13 +979,17 @@
 
 <script>
   (() => {
-    // ========== قائمة الصور من j1.jpg إلى j20.jpg ==========
-    const totalImages = 20;
+    // ========== قائمة الصور من j1.jpeg إلى j40.jpeg ==========
+    const totalImages = 40;
     const imageList = [
       'j1.jpeg', 'j2.jpeg', 'j3.jpeg', 'j4.jpeg', 'j5.jpeg',
       'j6.jpeg', 'j7.jpeg', 'j8.jpeg', 'j9.jpeg', 'j10.jpeg',
       'j11.jpeg', 'j12.jpeg', 'j13.jpeg', 'j14.jpeg', 'j15.jpeg',
-      'j16.jpeg', 'j17.jpeg', 'j18.jpeg', 'j19.jpeg', 'j20.jpeg'
+      'j16.jpeg', 'j17.jpeg', 'j18.jpeg', 'j19.jpeg', 'j20.jpeg',
+      'j21.jpeg', 'j22.jpeg', 'j23.jpeg', 'j24.jpeg', 'j25.jpeg',
+      'j26.jpeg', 'j27.jpeg', 'j28.jpeg', 'j29.jpeg', 'j30.jpeg',
+      'j31.jpeg', 'j32.jpeg', 'j33.jpeg', 'j34.jpeg', 'j35.jpeg',
+      'j36.jpeg', 'j37.jpeg', 'j38.jpeg', 'j39.jpeg', 'j40.jpeg'
     ];
 
     let currentImageIndex = 0;
